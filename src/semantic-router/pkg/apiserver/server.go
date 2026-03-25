@@ -218,6 +218,11 @@ func (s *ClassificationAPIServer) registerConfigRoutes(mux *http.ServeMux) {
 	// Configuration endpoints
 	mux.HandleFunc("GET /config/classification", s.handleGetConfig)
 	mux.HandleFunc("PUT /config/classification", s.handleUpdateConfig)
+	mux.HandleFunc("GET /config/classifiers", s.handleListTaxonomyClassifiers)
+	mux.HandleFunc("POST /config/classifiers", s.handleCreateTaxonomyClassifier)
+	mux.HandleFunc("GET /config/classifiers/{name}", s.handleGetTaxonomyClassifier)
+	mux.HandleFunc("PUT /config/classifiers/{name}", s.handleUpdateTaxonomyClassifier)
+	mux.HandleFunc("DELETE /config/classifiers/{name}", s.handleDeleteTaxonomyClassifier)
 
 	// Config deploy/rollback endpoints (Router writes its own config file)
 	mux.HandleFunc("GET /config/router", s.handleConfigGet)
