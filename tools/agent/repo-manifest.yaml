@@ -142,6 +142,7 @@ docs:
   - docs/agent/plans/pl-0012-dsl-conflict-free-routing-workstream.md
   - docs/agent/plans/pl-0013-openclaw-vsr-install-import-workstream.md
   - docs/agent/plans/pl-0014-structure-signal-family-implementation.md
+  - docs/agent/plans/pl-0015-taxonomy-classifier-platform-loop.md
   - docs/agent/state-taxonomy-and-inventory.md
   - docs/agent/tech-debt-register.md
   - docs/agent/tech-debt/README.md
@@ -315,6 +316,9 @@ doc_governance:
     - path: docs/agent/plans/pl-0014-structure-signal-family-implementation.md
       steward: agent-contract
       freshness: update at the start and end of each structure-signal-family implementation loop and after each completed loop task
+    - path: docs/agent/plans/pl-0015-taxonomy-classifier-platform-loop.md
+      steward: agent-contract
+      freshness: update at the start and end of each taxonomy-classifier platform loop and after each completed loop task
     - path: docs/agent/state-taxonomy-and-inventory.md
       steward: agent-contract
       freshness: update when the runtime or dashboard state inventory, durability taxonomy, or persistence guidance changes materially
