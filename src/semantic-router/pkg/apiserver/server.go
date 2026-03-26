@@ -82,6 +82,7 @@ func Init(configPath string, port int, enableSystemPromptAPI bool) error {
 		configPath:            configPath,
 		memoryStore:           memoryStore,
 		enableSystemPromptAPI: enableSystemPromptAPI,
+		knowledgeBaseMapCache: newKnowledgeBaseMapCache(),
 	}
 
 	// Create HTTP server with routes
@@ -218,11 +219,15 @@ func (s *ClassificationAPIServer) registerConfigRoutes(mux *http.ServeMux) {
 	// Configuration endpoints
 	mux.HandleFunc("GET /config/classification", s.handleGetConfig)
 	mux.HandleFunc("PUT /config/classification", s.handleUpdateConfig)
-	mux.HandleFunc("GET /config/kbs", s.handleListKnowledgeBases)
-	mux.HandleFunc("POST /config/kbs", s.handleCreateKnowledgeBase)
-	mux.HandleFunc("GET /config/kbs/{name}", s.handleGetKnowledgeBase)
-	mux.HandleFunc("PUT /config/kbs/{name}", s.handleUpdateKnowledgeBase)
-	mux.HandleFunc("DELETE /config/kbs/{name}", s.handleDeleteKnowledgeBase)
+		mux.HandleFunc("GET /config/kbs", s.handleListKnowledgeBases)
+		mux.HandleFunc("POST /config/kbs", s.handleCreateKnowledgeBase)
+		mux.HandleFunc("GET /config/kbs/{name}", s.handleGetKnowledgeBase)
+		mux.HandleFunc("GET /config/kbs/{name}/map/metadata", s.handleGetKnowledgeBaseMapMetadata)
+		mux.HandleFunc("GET /config/kbs/{name}/map/data.ndjson", s.handleGetKnowledgeBaseMapData)
+		mux.HandleFunc("GET /config/kbs/{name}/map/grid.json", s.handleGetKnowledgeBaseMapGrid)
+		mux.HandleFunc("GET /config/kbs/{name}/map/topic.json", s.handleGetKnowledgeBaseMapTopic)
+		mux.HandleFunc("PUT /config/kbs/{name}", s.handleUpdateKnowledgeBase)
+		mux.HandleFunc("DELETE /config/kbs/{name}", s.handleDeleteKnowledgeBase)
 
 	// Config deploy/rollback endpoints (Router writes its own config file)
 	mux.HandleFunc("GET /config/router", s.handleConfigGet)

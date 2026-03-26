@@ -90,3 +90,4 @@ Keep the numeric index unique within `docs/agent/plans/`.
 - [pl-0014-structure-signal-family-implementation.md](pl-0014-structure-signal-family-implementation.md)
 - [pl-0015-taxonomy-classifier-platform-loop.md](pl-0015-taxonomy-classifier-platform-loop.md)
 - [pl-0016-generic-embedding-kb-workstream.md](pl-0016-generic-embedding-kb-workstream.md)
+- [pl-0017-wizmap-knowledge-map-integration.md](pl-0017-wizmap-knowledge-map-integration.md)

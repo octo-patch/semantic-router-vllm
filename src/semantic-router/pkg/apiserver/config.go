@@ -16,6 +16,7 @@ type ClassificationAPIServer struct {
 	configPath            string // path to the router config file (for deploy/rollback)
 	memoryStore           memory.Store
 	enableSystemPromptAPI bool
+	knowledgeBaseMapCache *knowledgeBaseMapCache
 }
 
 type (
